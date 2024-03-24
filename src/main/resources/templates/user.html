@@ -1,11 +1,100 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org" xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Spring Security Example</title>
+    <meta charset="UTF-8">
+    <title>Страница пользователя</title>
+    <style>
+        body {
+            background-color: #f2f2f2;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 20px;
+        }
+
+        h1 {
+            color: #4285f4;
+        }
+
+        table {
+            margin: auto;
+            border-collapse: collapse;
+            width: 80%;
+            background-color: #ffffff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        th, td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid #dddddd;
+        }
+
+        tr:hover {
+            background-color: #f2f2f2;
+        }
+
+        input {
+            padding: 10px;
+            margin-top: 5px;
+            width: 90%;
+            box-sizing: border-box;
+        }
+
+        input[type="submit"] {
+            margin-top: 20px;
+            background-color: #4285f4;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        a {
+            display: block;
+            margin-top: 20px;
+            color: #4285f4;
+            text-decoration: none;
+            text-align: right;
+        }
+
+        .action-button {
+            margin-top: 20px;
+            background-color: #4285f4;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            float: left;
+        }
+    </style>
 </head>
 <body>
 <h1>User, welcome spring boot security page!</h1>
-
-
+<form th:action="@{/user}" th:object="${user}" method="post">
+    <table>
+        <tr>
+            <th>Name:</th>
+            <td><input type="text" th:field="*{name}" required readonly /></td>
+        </tr>
+        <tr>
+            <th>Surname:</th>
+            <td><input type="text" th:field="*{surname}" required readonly /></td>
+        </tr>
+        <tr>
+            <th>Department:</th>
+            <td><input type="text" th:field="*{department}" required readonly /></td>
+        </tr>
+        <tr>
+            <th>Salary:</th>
+            <td><input type="number" th:field="*{salary}" required readonly /></td>
+        </tr>
+    </table>
+    <td colspan="2">
+        <a th:href="@{/logout}">Logout</a>
+    </td>
+</form>
+<button class="action-button" onclick="window.location.href = '/menu'" style="margin-top: 20px;">Menu</button>
 </body>
 </html>

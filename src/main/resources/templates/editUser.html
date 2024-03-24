@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>User info</title>
+  <style>
+    body {
+      background-color: #f2f2f2;
+      font-family: Arial, sans-serif;
+      padding: 20px;
+    }
+    h2 {
+      color: #4285f4;
+      text-align: center;
+    }
+    form {
+      width: 50%;
+      margin: 20px auto;
+      background-color: #ffffff;
+      padding: 20px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      position: relative;
+    }
+    label {
+      display: block;
+      margin-top: 10px;
+      color: #555555;
+    }
+    input[type="text"] {
+      padding: 10px;
+      margin-top: 5px;
+      width: 90%;
+      box-sizing: border-box;
+      transition: box-shadow 0.3s;
+    }
+    input[type="checkbox"] {
+      margin-top: 5px;
+      margin-right: 5px;
+      box-sizing: border-box;
+    }
+    input[type="submit"] {
+      margin-top: 20px;
+      padding: 10px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+      background-color: #4285f4;
+      color: white;
+      border: none;
+      transition: box-shadow 0.3s;}
+  </style>
+</head>
+<body>
+<h2>User info</h2>
+<form th:method="POST" th:action="@{/editUser}" th:object="${user}" style="text-align: left;">
+
+  <input name="id" th:field="*{id}" th:value="${user.id}" hidden="hidden">
+
+  <label for="username">Enter username: </label>
+  <input type="text" th:field="*{username}" id="username"/>
+  <br><br>
+  <label for="password">Enter password: </label>
+  <input type="text" th:field="*{password}" id="password"/>
+  <br><br>
+  <label for="name">Enter name: </label>
+  <input type="text" th:field="*{name}" id="name"/>
+  <br><br>
+  <label for="surname">Enter surname: </label>
+  <input type="text" th:field="*{surname}" id="surname"/>
+  <br><br>
+  <label for="department">Enter department: </label>
+  <input type="text" th:field="*{department}" id="department"/>
+  <br><br>
+  <label for="salary">Enter salary: </label>
+  <input type="text" th:field="*{salary}" id="salary"/>
+  <br><br>
+  <label>
+    <input type="checkbox" name="role" th:value="ROLE_ADMIN" th:text="Administrator" style="vertical-align: -2px;">
+  </label>
+  <label>
+    <input type="checkbox" name="role" th:value="ROLE_USER" th:text="User" style="vertical-align: -2px;">
+  </label>
+  <input type="submit" value="Update" />
+  <a th:href="@{/logout}" class="logout-button">Logout</a>
+
+</form>
+</body>
+</html>
