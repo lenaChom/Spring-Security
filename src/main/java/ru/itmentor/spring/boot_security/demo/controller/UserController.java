@@ -23,7 +23,7 @@ public class UserController {
     @Autowired
     private RoleService roleService;
 
-    @RequestMapping("/")
+    @GetMapping("/")
     public String helloPage(){
         return "index";
     }
@@ -33,7 +33,7 @@ public class UserController {
         return "menu";
     }
 
-    @RequestMapping  ("/user")
+    @GetMapping  ("/user")
     public String showUser(Model model, Authentication authentication) {
         String auth = authentication.getName();
         User user = userService.getUserByUsername(auth);

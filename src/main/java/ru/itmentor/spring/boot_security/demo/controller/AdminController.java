@@ -49,7 +49,7 @@ public class AdminController {
         userService.saveUser(user);
         return "redirect:/admin/all";}
 
-    @RequestMapping("/updateUser")
+    @PostMapping("/updateUser")
     public String updateUserForm(@RequestParam("id") Long id, Model model){
         User user = userService.getUser(id);
         Set<Role> roles = user.getRoles();
