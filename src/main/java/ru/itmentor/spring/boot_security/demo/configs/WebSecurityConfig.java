@@ -40,9 +40,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         http
                 .authorizeRequests()
                 .antMatchers("/").permitAll()
-                .antMatchers("/newUser").anonymous() // Разрешить доступ к странице регистрации только для анонимных пользователей
-                .antMatchers("/admin/**").hasRole("ADMIN")
-                .antMatchers("/user/**")
+                .antMatchers("/newUser").anonymous()
+                .antMatchers("/admin/**").hasRole("ADMIN").antMatchers("/user/**")
                 .hasAnyRole("USER", "ADMIN")
                 .anyRequest().authenticated()
                 .and()
