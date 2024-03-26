@@ -14,6 +14,4 @@ public interface UserService {
     public void deleteUser(long id);
 
    User getUserByUsername(String username);
-
-    void mergeUser(User user);
 }

@@ -36,9 +36,4 @@ public class UserServiceImpl implements UserService {
         return  userRepo.getUserByUsername(username);
     }
 
-    @Override
-    public void mergeUser(User user) {
-        userRepo.mergeUser(user);
-    }
-
 }

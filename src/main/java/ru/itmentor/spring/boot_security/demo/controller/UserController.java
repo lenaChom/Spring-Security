@@ -56,7 +56,7 @@ public class UserController {
         if(role !=null && role.equals("ROLE_ADMIN")){
             roles.add(roleService.getRoleByName("ROLE_ADMIN"));}
         user.setRoles(roles);
-        userService.mergeUser(user);
+        userService.updateUser(user);
         return "redirect:/user";
     }
 }
